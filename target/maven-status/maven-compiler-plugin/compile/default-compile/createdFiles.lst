@@ -1,0 +1,7 @@
+formationHarington\Model\Client$ClientBuilder.class
+formationHarington\Model\Client.class
+formationHarington\Configuration\SwaggerConfig.class
+formationHarington\formationHaringtonApplication.class
+formationHarington\Controller\ClientController.class
+formationHarington\Manager\ClientManagerImpl.class
+formationHarington\Repository\ClientRepository.class

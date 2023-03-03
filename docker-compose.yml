@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  angular-app:
+    build: C:\Users\Adam\Desktop\angular formation harington\FormationHarington
+    ports:
+      - "80:80"
+
+  spring-boot-app:
+    build: C:\Users\Adam\Desktop\formation\FormationHarington
+    ports:
+      - "8092:8092"
+    depends_on:
+      - mysql-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/mydatabase?useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: myuser
+      SPRING_DATASOURCE_PASSWORD: mypassword
+
+  mysql-db:
+    image: mysql:8
