@@ -4,6 +4,7 @@ package formationHarington.Controller;
 import formationHarington.Manager.CommandeManagerImpl;
 import formationHarington.Model.Client;
 import formationHarington.Model.Commande;
+import formationHarington.Model.Produit;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -56,6 +57,12 @@ public class CommandeController {
     @GetMapping(produces = APPLICATION_JSON_VALUE, path = "/GetClientCommande/{id}")
     ResponseEntity<Client>  getClienCommande (@PathVariable("id") Long id){
         return ResponseEntity.ok(commandeService.GetClientCommande(id));
+    }
+
+
+    @GetMapping(produces = APPLICATION_JSON_VALUE, path = "/GetProduitByCommande/{id}")
+    ResponseEntity<List<Produit>> getProduitsByCommande  (@PathVariable("id") Long id){
+        return ResponseEntity.ok(commandeService.GetProduitParCommande(id));
     }
 
 

@@ -4,7 +4,9 @@ package formationHarington.Manager;
 
 import formationHarington.Model.Client;
 import formationHarington.Model.Commande;
+import formationHarington.Model.Produit;
 import formationHarington.Repository.ClientRepository;
+import formationHarington.Repository.ProduitRepository;
 import formationHarington.Repository.commandeRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Component
@@ -22,6 +25,7 @@ public class CommandeManagerImpl {
 
     private final commandeRepository commandeRepository ;
     private final ClientRepository clientRepository;
+    private final ProduitRepository ProduitRepo ;
 
     public Commande CreateNewCommandeAndAffecte (Commande commande , Long IdClient){
         Client client = clientRepository.findById(IdClient).orElse(null);
@@ -44,6 +48,10 @@ public class CommandeManagerImpl {
         Oldcommande.setDateLivraison(commande.getDateLivraison());
         Oldcommande.setNomBoutique(commande.getNomBoutique());
         return commandeRepository.save(Oldcommande);
+    }
+    public List<Produit> GetProduitParCommande(Long IdCommande){
+        List<Produit> produits = ProduitRepo.findAll();
+        return produits.stream().filter(produit -> produit.getCommande().getIdCommande()==IdCommande).collect(Collectors.toList());
     }
 
     public Client GetClientCommande (Long IdCommande){
