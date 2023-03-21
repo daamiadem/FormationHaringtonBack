@@ -7,7 +7,17 @@ pipeline{
                     git branch : 'master',
                     url :'https://github.com/daamiadem/FormationHaringtonBack.git'
                     }
-
         }
+
+        stage('Maven Clean install'){
+                steps{
+                     sh "mvn -version"
+                     sh 'mvn clean'
+                     sh 'mvn install'
+                }
+        }
+
+
+
     }
 }
