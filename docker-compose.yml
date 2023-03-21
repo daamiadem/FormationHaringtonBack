@@ -10,11 +10,6 @@ services:
     depends_on:
       - db
 
-  frontend:
-    build: C:\Users\Adam\Desktop\angularFormationHarington\FormationHarington
-
-    ports:
-      - "8090:80"
 
   db:
     image: mysql:5.7
