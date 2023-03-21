@@ -22,6 +22,14 @@ pipeline{
                 }
         }
 
+        stage('Nexus Repository Manager') {
+                steps {
+                        script {
+        				    nexusArtifactUploader artifacts: [[artifactId: 'FormationHarington', classifier: '', file: 'target/FormationHarington-1.0-SNAPSHOT.jar', type: 'jar']], credentialsId: 'NEXUS_CRED', groupId: 'org.example', nexusUrl: '192.168.126.5:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: '1.0-SNAPSHOT'
+        				        }
+                        }
+                }
+
 
 
     }
