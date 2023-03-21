@@ -1,7 +1,17 @@
+formationHarington\Repository\commandeRepository.class
+formationHarington\Controller\ProduitController.class
+formationHarington\Model\Commande$CommandeBuilder.class
+formationHarington\Repository\ProduitRepository.class
 formationHarington\Model\Client$ClientBuilder.class
+formationHarington\Controller\CommandeController.class
+formationHarington\Model\Produit$ProduitBuilder.class
+formationHarington\Model\Commande.class
+formationHarington\Model\Produit.class
 formationHarington\Model\Client.class
 formationHarington\Configuration\SwaggerConfig.class
 formationHarington\formationHaringtonApplication.class
+formationHarington\Manager\ProduitManagerImpl.class
 formationHarington\Controller\ClientController.class
 formationHarington\Manager\ClientManagerImpl.class
+formationHarington\Manager\CommandeManagerImpl.class
 formationHarington\Repository\ClientRepository.class
