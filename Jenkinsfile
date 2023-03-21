@@ -16,7 +16,7 @@ pipeline{
                 }
         }
 
-        stage('SonarQube analysis 1') {
+        stage('SonarQube analysis') {
                 steps {
                         sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=ademdaami'
                 }
@@ -29,6 +29,12 @@ pipeline{
         				        }
                         }
                 }
+
+        stage ('Docker Compose'){
+                steps {
+                       sh 'docker-compose up'
+                }
+        }
 
 
 
